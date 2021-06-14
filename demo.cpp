@@ -1,8 +1,7 @@
 /**
  * Demo file for the exercise on numbers with units
  *
- * @author Erel Segal-Halevi
- * @since 2019-02
+ * @author Ashraf Hijazy
  */
 
 #include <iostream>
@@ -18,14 +17,24 @@ int main() {
   ifstream units_file{"units.txt"};
   NumberWithUnits::read_units(units_file);
 
+
+    NumberWithUnits a{1, "hour"};   // 2 kilometers
+    NumberWithUnits b{2, "min"};   // 2 kilometers
+    // NumberWithUnits c{1, "day"};   // 2 kilometers
+    // NumberWithUnits d{2, "day"};   // 2 kilometers
+    // c+=d;
+    cout << b+a << endl;
+    // cout <<"\n" << c << endl;
+
+
     // NumberWithUnits a{2, "km"};   // 2 kilometers
-    // NumberWithUnits h{5, "km"};   // 5 kilometers
   //  cout << a << endl;           // Prints "2[km]".
   //  cout << (-a) << endl;    // Prints "-2[km]"
   //  cout << (3*a) << endl;    // Prints "6[km]"
 
-  //  NumberWithUnits b{300, "m"};  // 300 meters
-  //  NumberWithUnits c{300, "cm"};  // 300 cm
+  // NumberWithUnits a{2, "km"};   // 2 kilometers
+  // NumberWithUnits b{300, "m"};  // 300 meters
+  // NumberWithUnits c{300, "cm"};  // 300 cm
 
 /*  Check + Operator */
   //  cout <<"[a] + [b], 2.3[km] =>" << (a+b) << endl; 
@@ -44,23 +53,31 @@ int main() {
   //  cout <<"[c] - [b], [-29700][cm] => " << (c-b) << endl;
 
 /* Check += / -=  Operators */
-  //  cout <<"[a] +=[b], [2.3][km] =>" << (a+=b) << endl;
-  //  //after increase a by b , a should be 2.3[km] 
-  //  cout <<"[a] +=[h], [7.3][km] =>" << (a+=h) << endl;
-  //  cout <<"[a] -=[b], [7][km] =>" << (a-=b) << endl;
-  //  cout <<"[a] -=[h], [2][km] =>" << (a-=h) << endl;
+  // NumberWithUnits h{5, "km"};   // 5 kilometers
+  // cout <<"[a] +=[b], [2.3][km] =>" << (a+=b) << endl;
+  // //after increase a by b , a should be 2.3[km] 
+  // cout <<"[a] +=[h], [7.3][km] =>" << (a+=h) << endl;
+  // cout <<"[a] -=[b], [7][km] =>" << (a-=b) << endl;
+  // cout <<"[a] -=[h], [2][km] =>" << (a-=h) << endl;
 
+// NumberWithUnits kilogram{2, "kg"};   // 2 USD
 // NumberWithUnits coin{2, "USD"};   // 2 USD
-// NumberWithUnits hour{7, "hour"};   // 2 USD
-// NumberWithUnits min{60, "min"};   // 2 USD
-// NumberWithUnits sec{120, "sec"};   // 2 USD
 // /* Check Exceptions*/
 // try {
-//     cout << (coin - hour) << endl;
+//   // a is kilometer [km]
+//     cout << (kilogram-a) << endl;
 //    }
 //    catch (const std::exception& e) {
 //     cout << e.what();
 // }
+// cout << "\n";
+// try {
+//     cout << (kilogram + coin) << endl;
+//    }
+//    catch (const std::exception& e) {
+//     cout << e.what();
+// }
+// cout << "\n";
 // try {
 //     cout << (a - b) << endl;
 //    }
@@ -80,7 +97,7 @@ int main() {
 
 
 /* Check ++ / --  Operators */
-  NumberWithUnits a{2, "km"};   // 2 kilometers
+  // NumberWithUnits a{2, "km"};   // 2 kilometers
   // NumberWithUnits b{300, "m"};  // 300 meters
   // cout << (a++) << endl;  // Prints 2
   // cout << (a) << endl;  // Prints 3
@@ -91,14 +108,13 @@ int main() {
 
 
 
+  // NumberWithUnits a{2, "km"};   // 2 kilometers
+  // istringstream sample_input{"700 [ kg ]"};
+  // sample_input >> a;
+  // cout << a << endl;   // Prints "700[kg]"
+  // cout << (a += NumberWithUnits{1, "ton"}) << endl;  // prints "1700[kg]"
+  // cout << a << endl;   // Prints "1700[kg]". Note that a has changed.
 
-
-  istringstream sample_input{"700 [ kg ]"};
-  sample_input >> a;
-  cout << a << endl;   // Prints "700[kg]"
-  cout << (a += NumberWithUnits{1, "ton"}) << endl;  // prints "1700[kg]"
-  cout << a << endl;   // Prints "1700[kg]". Note that a has changed.
-
-  cout << "End of demo!" << endl;
+  // cout << "End of demo!" << endl;
   return 0;
 }

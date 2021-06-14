@@ -3,6 +3,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <map>
+#include <set>
 
 namespace ariel {
 class NumberWithUnits {
@@ -55,17 +56,18 @@ public:
 
     friend NumberWithUnits operator*(double n, NumberWithUnits a);
 
+    friend NumberWithUnits operator*(NumberWithUnits a,double n);
+
     friend std::ostream& operator<<(std::ostream& output, const NumberWithUnits& num_unit);
 
     friend std::istream& operator>>(std::istream& input, NumberWithUnits& num_unit);
 
-    friend NumberWithUnits checkUnits(const NumberWithUnits& a, const NumberWithUnits& b);
-    friend int compareUnits(const NumberWithUnits& a, const NumberWithUnits& b);
+    friend double convertUnits(const NumberWithUnits& a, const NumberWithUnits& b);
 
     double getNum();
     std::string getUnit();
-    void setNum(double n);
-    void setUnit(std::string un);
+    // void setNum(double n);
+    // void setUnit(std::string un);
 
 private:
     double num;
